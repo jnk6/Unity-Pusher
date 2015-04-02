@@ -1,0 +1,237 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DBEssentials</name>
+    </assembly>
+    <members>
+        <member name="T:DBEssentials.DialogueFrame">
+            <summary>
+            Holds the necessary information for a single instance of the dialogue box.
+            </summary>
+        </member>
+        <member name="M:DBEssentials.DialogueFrame.#ctor(UnityEngine.Sprite,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the text version of the <see cref="T:DBEssentials.DialogueFrame"/> class.
+            Using this constructor will automatically configure the dialogue 
+            </summary>
+            <param name="port">Portrait of the character speaking in this dialogue frame.</param>
+            <param name="speakerName">The name of the character speaking, or object being interacted.</param>
+            <param name="text">Text content of this dialogue frame.</param>
+        </member>
+        <member name="M:DBEssentials.DialogueFrame.#ctor(UnityEngine.Sprite,System.String,System.String,System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:DBEssentials.DialogueFrame"/> class.
+            </summary>
+            <param name="port">Portrait of the character speaking in this dialogue frame.</param>
+            <param name="title">Title of the choice dialogue frame. Could be a question, a statement or whatever.</param>
+            <param name="logtext">Text to be displayed in the log. Buttons for choices will be displayed in the dialogue box instead of text</param>
+            <param name="blabels">Blabels.</param>
+        </member>
+        <member name="P:DBEssentials.DialogueFrame.Portrait">
+            <summary>
+            Gets or sets the portrait.
+            </summary>
+            <value>A Sprite portrait.</value>
+        </member>
+        <member name="P:DBEssentials.DialogueFrame.CharName">
+            <summary>
+            Gets or sets the name of the character speaking in this .
+            </summary>
+            <value>String name.</value>
+        </member>
+        <member name="P:DBEssentials.DialogueFrame.DialogueText">
+            <summary>
+            Gets or sets the dialogue text.
+            </summary>
+            <value>The dialogue text.</value>
+        </member>
+        <member name="P:DBEssentials.DialogueFrame.ButtonLabels">
+            <summary>
+            Gets or sets the button labels.
+            </summary>
+            <value>The button labels.</value>
+        </member>
+        <member name="P:DBEssentials.DialogueFrame.Type">
+            <summary>
+            Gets or sets the Dialogue Frame type. Normal means the DFrame will only display text
+            for dialogue. Choice means the DFrame will display the buttons only in the dialogue box but
+            will write the text to the conversation log.
+            </summary>
+            <value>dftype type.</value>
+        </member>
+        <member name="P:DBEssentials.DialogueFrame.Choice">
+            <summary>
+            Gets the Dialogue Frame type choice.
+            </summary>
+            <value>dftype choice.</value>
+        </member>
+        <member name="P:DBEssentials.DialogueFrame.Normal">
+            <summary>
+            Gets the Dialogue Frame type normal.
+            </summary>
+            <value>dftype normal.</value>
+        </member>
+        <member name="T:DBEssentials.Log">
+             * To handle the number of dialague frames that can be viewable at one time
+             * and storing past conversations made by the player
+            **
+            <summary>
+            Handles the number of dialogue frames that can be viewable at one time and stores
+            past conversations made by the player.
+            </summary>
+        </member>
+        <member name="M:DBEssentials.Log.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DBEssentials.Log"/> class.
+            </summary>
+            <param name="viewSize">View size.</param>
+        </member>
+        <member name="M:DBEssentials.Log.read">
+            <summary>
+            combines all the conversations in the viewable list and returns a single string
+            </summary>
+        </member>
+        <member name="M:DBEssentials.Log.insert(DBEssentials.DialogueFrame)">
+            <summary>
+            Insert the specified dialogue frame. Uses reset() before adding to the list so the frame will
+            be inserted to the very front of the list.
+            </summary>
+            <param name="df">Df.</param>
+        </member>
+        <member name="M:DBEssentials.Log.reset">
+            <summary>
+            Reset the position of viewable to the front of the list. Called by insert() to make sure the frame
+            inserted is at the correct position
+            </summary>
+        </member>
+        <member name="M:DBEssentials.Log.moveBack">
+            <summary>
+            Move back in time by one dialogue frame. Moves viewable to the back of the list by one element.
+            </summary>
+        </member>
+        <member name="M:DBEssentials.Log.moveForward">
+            <summary>
+            Move forward in time by one dialogue frame. Moves viewable to the forward of the list by one element.
+            </summary>
+        </member>
+        <member name="M:DBEssentials.Log.hasBack">
+            <summary>
+            If it is possible to move viewable towards the back of the list.
+            </summary>
+            <returns><c>true</c>, if moving back is possible, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:DBEssentials.Log.hasFront">
+            <summary>
+            If it is possible to move viewable towards the front of the list.
+            </summary>
+            <returns><c>true</c>, if moving front is possible, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="P:DBEssentials.Log.ViewSize">
+                 * the amount of dialogue frames to view per log frame (which is supposed 
+                 * to be bigger than a dialogue frame)
+                **
+            <summary>
+            the amount of dialogue frames to view per log frame (which is supposed
+            to be bigger than a dialogue frame)
+            </summary>
+            <value>The size of the viewable</value>
+        </member>
+        <member name="T:DBEssentials.ReversableDFQueue">
+            <summary>
+            Extends DFQueue. Allows enqueueing elements from the front of the queue and dequeueing from the back.
+            </summary>
+        </member>
+        <member name="T:DBEssentials.DFQueue">
+            <summary>
+            Queue implementation using list of DialogueFrames.
+            </summary>
+        </member>
+        <member name="M:DBEssentials.DFQueue.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DBEssentials.DFQueue"/> class.
+            </summary>
+        </member>
+        <member name="M:DBEssentials.DFQueue.enqueue(DBEssentials.DialogueFrame)">
+            <summary>
+            Enqueue the specified DialogueFrame.
+            </summary>
+            <param name="DFrame">Dialogue frame.</param>
+        </member>
+        <member name="M:DBEssentials.DFQueue.front">
+            <summary>
+            Returns the DialogueFrame element at the front of the queue, without removing it.
+            </summary>
+        </member>
+        <member name="M:DBEssentials.DFQueue.dequeue">
+            <summary>
+            Dequeue the front element.
+            </summary>
+        </member>
+        <member name="P:DBEssentials.DFQueue.Size">
+            <summary>
+            Gets the size.
+            </summary>
+            <value>The size.</value>
+        </member>
+        <member name="P:DBEssentials.DFQueue.IsEmpty">
+            <summary>
+            Gets a value indicating whether the queue is empty.
+            </summary>
+            <value><c>true</c> if this instance is empty; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:DBEssentials.ReversableDFQueue.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DBEssentials.ReversableDFQueue"/> class.
+            </summary>
+        </member>
+        <member name="M:DBEssentials.ReversableDFQueue.reverseDequeue(DBEssentials.DialogueFrame)">
+            <summary>
+            Enqueues an element to the front of the queue.
+            </summary>
+            <param name="DFrame">D frame.</param>
+        </member>
+        <member name="M:DBEssentials.ReversableDFQueue.reverseEnqueue">
+            <summary>
+            Dequeues an element at the back of the queue.
+            </summary>
+            <returns>DialogueFrame at the back of the queue</returns>
+        </member>
+        <member name="T:DBEssentials.DFStack">
+            <summary>
+            Stack implementation using list of DialogueFrames.
+            </summary>
+        </member>
+        <member name="M:DBEssentials.DFStack.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DBEssentials.DFStack"/> class.
+            </summary>
+        </member>
+        <member name="M:DBEssentials.DFStack.push(DBEssentials.DialogueFrame)">
+            <summary>
+            Push the specified DialogueFrame to the top of the stack.
+            </summary>
+            <param name="DFrame">Dialogue frame.</param>
+        </member>
+        <member name="M:DBEssentials.DFStack.top">
+            <summary>
+            Returns the top element of the stack, without removing it.
+            </summary>
+        </member>
+        <member name="M:DBEssentials.DFStack.pop">
+            <summary>
+            Returns the top element of the stack and removes it.
+            </summary>
+        </member>
+        <member name="M:DBEssentials.DFStack.Size">
+            <summary>
+            Returns the amount of elements currently in the stack.
+            </summary>
+        </member>
+        <member name="P:DBEssentials.DFStack.IsEmpty">
+            <summary>
+            Gets a value indicating whether this stack is empty.
+            </summary>
+            <value><c>true</c> if this stack is empty; otherwise, <c>false</c>.</value>
+        </member>
+    </members>
+</doc>

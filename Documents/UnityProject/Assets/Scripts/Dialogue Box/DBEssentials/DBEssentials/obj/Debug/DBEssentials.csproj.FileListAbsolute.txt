@@ -1,0 +1,7 @@
+C:\Users\Jonathan\Documents\UnityProject\Assets\Scripts\Dialogue Box\DBEssentials\DBEssentials\bin\Debug\DBEssentials.XML
+C:\Users\Jonathan\Documents\UnityProject\Assets\Scripts\Dialogue Box\DBEssentials\DBEssentials\bin\Debug\DBEssentials.dll
+C:\Users\Jonathan\Documents\UnityProject\Assets\Scripts\Dialogue Box\DBEssentials\DBEssentials\bin\Debug\DBEssentials.pdb
+C:\Users\Jonathan\Documents\UnityProject\Assets\Scripts\Dialogue Box\DBEssentials\DBEssentials\bin\Debug\UnityEngine.dll
+C:\Users\Jonathan\Documents\UnityProject\Assets\Scripts\Dialogue Box\DBEssentials\DBEssentials\obj\Debug\DBEssentials.csprojResolveAssemblyReference.cache
+C:\Users\Jonathan\Documents\UnityProject\Assets\Scripts\Dialogue Box\DBEssentials\DBEssentials\obj\Debug\DBEssentials.dll
+C:\Users\Jonathan\Documents\UnityProject\Assets\Scripts\Dialogue Box\DBEssentials\DBEssentials\obj\Debug\DBEssentials.pdb

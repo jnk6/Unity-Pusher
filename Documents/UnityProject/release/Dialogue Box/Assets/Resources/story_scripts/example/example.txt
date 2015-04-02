@@ -1,0 +1,50 @@
+;;;======================================================================
+;;; Author: Jonathan Kristanto
+;;; This is an example dialogue text script.
+;;;
+;;; An empty line or a line beginning with ;;; will be ignored 
+;;; by the parse script.
+;;;
+;;; &&& - always start a story script file with this. Any text
+;;; written in this line will be defined as the script name.
+;;;
+;;; newline (ENTER) - a new line means there is a new speaker and forces
+;;; a new dialogue frame. You can also make a new line to force a new
+;;; dialogue frame with the same speaker. You may word wrap in notepad, but
+;;; everytime you press (ENTER), it is considered a newline.
+;;;
+;;; @@@ - delimter between the speaker's name and his/her dialogue text.
+;;;
+;;; Below is an example of a dialogue ( or monologue in this case) script
+;;; for a particular interaction.
+;;; This would be the first interaction the player has with the Medical
+;;; Examiner in "The House" scene.
+;;; P.S. my writing sucks
+;;;======================================================================
+
+&&&House Scene, Medical Examiner, Monologue 1
+
+
+Medical Examiner @@@ Today was terrible... Who knew that, out of all people, I would be the one to have to examine the body of my closest friend. I knew that she would somtimes be depressed, but I would have never expected her to do this. Everything just happened so suddenly. She was my best friend, we would also hang out around this time. We usually watched her favorite show, 'Full Manor', which was a popular television series in the late 80's and early 90's about a widowed father, who enlists his best friend and his brother-in-law to help raise his three daughters. Since I don't have any siblings, I've always thought of her as my older sister. I didn't expect any of this to happen, nor do I think I would have ever been prepared for it. Accepting the facts already hurts my head; trying to make sense of the reality hurts even more. To be honest, recently everything has just been a blur. I just couldn't bear the pain of seeing my best friend so lifeless. At least not without some distraction and something to numb the pain...
+
+;;; Note the name of the speaker does not have to be a character.
+;;; It could be an inanimate object you are interacting with, or a pet or 
+;;; animal. It could be anything in the game that you would want to
+;;; have some sort of text interaction. In this case, because the next part
+;;; will just be describing an event with no speakers or direct interaction
+;;; with the player, the speaker is just left blank.
+@@@ She reaches for the television remote and switches the channel away from the news, all of which are covering the incident.
+@@@ She finally finds something satisfactory and sets down the remote. She quickly knocks out and drifts into sleep.
+
+;;; To differentiate between dialogue and monologue, dialogue should have
+;;; start and end quotes.
+;;; for example, in contrast to the monologue above, below is a dialogue
+Man 1 @@@ "Hello, how do you do?"
+Man 2 @@@ "Do you do, how do?"
+Woman 1 @@@ "How do you do how?"
+
+;;; End the script with @@@ on a new line.
+;;; This will create an empty dialogue frame, which the unity script will
+;;; recognize it is the end of a dialogue script. Leaving this out
+;;; will leave out the last line of your dialogue script.
+@@@
