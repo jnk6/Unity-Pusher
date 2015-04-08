@@ -42,13 +42,17 @@ public class DisplayManager : MonoBehaviour {
 	TouchInputModule touchIM;
 
 	void Awake(){
-		dbMenu.SetActive (false);
+		//set Actives to false by default
+		HideMenu = true;
+
 		gui = gameObject;
 		loggo = logtextgo.transform.parent.gameObject;
 
 		dbtext.name = "Content";
 		dbtitle.name = "Title";
 		dbportrait.name = "Portrait";
+
+
 
 		/*
 		dbgo.AddComponent<CanvasRenderer> ();
@@ -136,16 +140,27 @@ public class DisplayManager : MonoBehaviour {
 		portrait = dframe.Portrait;
 	}
 
-	public void updateMenu(string title, string[] buttonLabels){
+	public GameObject[] updateMenu(string title, string[] buttonLabels){
 		if (buttonLabels.Length != 4) {
 			Debug.LogError("You must have 4 button labels to update menu");
-			return;		
+			return null;		
 		}
 		menuTitle.text = title;
 
 		for (int i = 0; i < buttonLabels.Length; ++i) {
 			buttons[i].GetComponent<Text>().text = buttonLabels[i];
 		}
+
+		return buttons;
+	}
+
+	public GameObject[] updateMenu (DialogueFrame dframe){
+		menuTitle.text = dframe.DialogueText;
+		for (int i = 0; i < dframe.ButtonLabels.Length; ++i) {
+			buttons[i].transform.GetChild(0).GetComponent<Text>().text = dframe.ButtonLabels[i];
+		}
+
+		return buttons;
 
 	}
 
@@ -163,6 +178,11 @@ public class DisplayManager : MonoBehaviour {
 		get{ return loggo.activeSelf;}
 		set{ loggo.SetActive(!value);}
 
+	}
+
+	public bool HideMenu {
+		get{ return dbMenu.activeSelf;}
+		set{ dbMenu.SetActive(!value);}
 	}
 
 	public bool ForwardButtonIsOn{

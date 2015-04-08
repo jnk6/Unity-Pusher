@@ -43,6 +43,13 @@ Man 1 @@@ "Hello, how do you do?"
 Man 2 @@@ "Do you do, how do?"
 Woman 1 @@@ "How do you do how?"
 
+;;; This is How to write a menu frame
+;;; The syntax is:
+;;; #MENU#Menu_ID/Name @@@ Menu title/description$button$ button1_name, button2_name, button3_name, button4_name
+;;;
+
+#MENU#Hello World!@@@Sample Menu$button$ Hello World!, Hello World!, Hello World!, Cancel
+
 ;;; End the script with @@@ on a new line.
 ;;; This will create an empty dialogue frame, which the unity script will
 ;;; recognize it is the end of a dialogue script. Leaving this out
