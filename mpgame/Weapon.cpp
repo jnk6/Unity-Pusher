@@ -2370,7 +2370,6 @@ rvWeapon::AmmoInClip
 ================
 */
 int rvWeapon::AmmoInClip( void ) const {
-	return 1;
 	if ( !clipSize ) {
 		return AmmoAvailable();
 	}
@@ -2452,7 +2451,6 @@ rvWeapon::UseAmmo
 ================
 */
 void rvWeapon::UseAmmo( int amount ) {
-	return;
 	owner->inventory.UseAmmo( ammoType, amount * ammoRequired );
 	if ( clipSize && ammoRequired ) {
 		ammoClip -= ( amount * ammoRequired );
@@ -2599,7 +2597,7 @@ void rvWeapon::Attack( bool altAttack, int num_attacks, float spread, float fuse
 		idDict& dict = altAttack ? attackAltDict : attackDict;
 		power *= owner->PowerUpModifier( PMOD_PROJECTILE_DAMAGE );
 		if ( altAttack ? wfl.attackAltHitscan : wfl.attackHitscan ) {
-			Hitscan( dict, muzzleOrigin, muzzleAxis, num_attacks, spread*5, power );
+			Hitscan( dict, muzzleOrigin, muzzleAxis, num_attacks, spread, power );
 		} else {
 			LaunchProjectiles( dict, muzzleOrigin, muzzleAxis, num_attacks, spread, fuseOffset, power );
 		}
